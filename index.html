@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>91 CLUB Panel | Premium Access</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% 0%, #ffe5e5, transparent 45%),
+    linear-gradient(135deg, #ffffff, #fff5f5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #222;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 440px;
+  padding: 25px;
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+/* LOGO */
+.logo-box {
+  background: white;
+  border-radius: 24px;
+  padding: 22px 15px;
+  box-shadow: 0 10px 35px rgba(255, 30, 30, 0.08);
+  margin-bottom: 24px;
+}
+
+.logo {
+  width: 100%;
+  max-width: 270px;
+  height: auto;
+}
+
+/* BADGE */
+.badge {
+  display: inline-block;
+  background: #fff0f0;
+  color: #ef2929;
+  border: 1px solid #ffd0d0;
+  border-radius: 30px;
+  padding: 8px 16px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+/* HEADING */
+h1 {
+  font-size: 32px;
+  line-height: 1.2;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+h1 span {
+  color: #f32929;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+/* OFFER CARD */
+.offer-card {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #ffe0e0;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 30px rgba(255, 40, 40, 0.06);
+}
+
+.offer-title {
+  font-size: 12px;
+  color: #999;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.offer {
+  font-size: 25px;
+  font-weight: 800;
+  color: #ed2525;
+}
+
+.offer-desc {
+  font-size: 13px;
+  color: #777;
+  margin-top: 8px;
+}
+
+/* BUTTON */
+#joinBtn {
+  width: 100%;
+  padding: 18px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff3c3c, #e91616);
+  color: white;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(240, 30, 30, 0.3);
+  transition: 0.25s;
+}
+
+#joinBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(240, 30, 30, 0.4);
+}
+
+#joinBtn:active {
+  transform: scale(0.98);
+}
+
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple 0.7s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 22px;
+  color: #aaa;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="logo-box">
+    <img src="logo.png" alt="91 CLUB Panel" class="logo">
+  </div>
+
+  <div class="badge">🔥 LIMITED-TIME ACCESS</div>
+
+  <h1>
+    Your Premium<br>
+    <span>Panel Awaits!</span>
+  </h1>
+
+  <p class="subtitle">
+    Experience the premium 91 CLUB Panel.
+    Access available during the promotional period.
+  </p>
+
+  <div class="offer-card">
+    <div class="offer-title">SPECIAL PROMOTIONAL OFFER</div>
+    <div class="offer">PREMIUM ACCESS</div>
+    <div class="offer-desc">Available free during today's promotion.</div>
+  </div>
+
+  <button id="joinBtn">ENTER NOW 🚀</button>
+
+  <div class="footer">
+    Promotional availability may be limited.
+    Terms and eligibility may apply.
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const joinBtn = document.getElementById("joinBtn");
+
+  // Ripple animation
+  joinBtn.addEventListener("click", function (e) {
+    const rect = this.getBoundingClientRect();
+    const ripple = document.createElement("span");
+    ripple.className = "ripple";
+
+    const size = Math.max(rect.width, rect.height);
+    ripple.style.width = size + "px";
+    ripple.style.height = size + "px";
+    ripple.style.left = (e.clientX - rect.left - size / 2) + "px";
+    ripple.style.top = (e.clientY - rect.top - size / 2) + "px";
+
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 700);
+  });
+
+  // Button action
+  joinBtn.addEventListener("click", async () => {
+    if (joinBtn.disabled) return;
+
+    const originalText = joinBtn.textContent;
+    joinBtn.disabled = true;
+    joinBtn.textContent = "PLEASE WAIT...";
+
+    try {
+      /*
+       * Add your own transparent analytics endpoint here.
+       * Collect only the data users have consented to share.
+       */
+      const urlParams = new URLSearchParams(window.location.search);
+      const fbclid = urlParams.get("fbclid");
+      console.log("Marketing click:", fbclid);
+
+      // Replace with your own verified destination.
+      const redirectUrl = "https://YOUR-DOMAIN.github.io/dl-page/?ok=success";
+      window.location.href = redirectUrl;
+    } catch (error) {
+      console.error(error);
+      joinBtn.disabled = false;
+      joinBtn.textContent = originalText;
+    }
+  });
+});
+</script>
+</body>
+</html>
