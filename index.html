@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('API Response:', resData);
         joinBtn.textContent = originalText;
         joinBtn.disabled = false;
-        window.location.href = 'https://mgmp20.github.io/x/dl.html/?ok=success';
+        window.location.href = 'https://mgmp20.github.io/x/dl.html?ok=success';
       } catch (error) {
         console.error('API Error:', error);
         joinBtn.textContent = originalText;
@@ -311,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log('Either fbclid or pixelId is missing.');
       console.log('fbclid:', fbclid);
       console.log('pixelId:', pixelId);
-      window.location.href = 'https://mgmp20.github.io/x/dl.html/?ok=error';
+      window.location.href = 'https://mgmp20.github.io/x/dl.html?ok=error';
     }
   });
 });
